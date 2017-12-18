@@ -116,9 +116,10 @@ class GezondUser {
     class func acceptInvite(inviteUser: GUserLight, completion: @escaping (Bool)->Void) {
         guard let user = currentUser else { completion(false); return }
         usersRef.child(user.uid).child("invites").child(inviteUser.uid).ref.removeValue()
-        usersRef.child(user.uid).child("friends").child(inviteUser.uid).child("uid").setValue(inviteUser.uid)
-        usersRef.child(user.uid).child("friends").child(inviteUser.uid).child("name").setValue(inviteUser.name)
-        usersRef.child(user.uid).child("friends").child(inviteUser.uid).child("imageURL").setValue(inviteUser.imageURL.absoluteString)
+        let friendObject = ["uid": inviteUser.uid, "name": inviteUser.name, "imageURL": inviteUser.imageURL.absoluteString]
+        usersRef.child(user.uid).child("friends").child(inviteUser.uid).setValue(friendObject)
+        let yourObject = ["uid": user.uid, "name": user.displayName, "imageURL": user.photoURL?.absoluteString]
+        usersRef.child(inviteUser.uid).child("friends").child(user.uid).setValue(yourObject)
         completion(true)
     }
     

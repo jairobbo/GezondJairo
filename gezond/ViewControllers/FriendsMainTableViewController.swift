@@ -31,20 +31,6 @@ class FriendsMainTableViewController: FriendsBaseTableViewController {
         
         definesPresentationContext = true
         
-        GezondUser.getInvitesOrFriends(type: "invites") { (invites) in
-            DispatchQueue.main.async {
-                self.matrixModel[0] = invites
-                self.tableView.reloadData()
-            }
-        }
-        
-        GezondUser.getInvitesOrFriends(type: "friends") { (friends) in
-            DispatchQueue.main.async {
-                self.matrixModel[1] = friends
-                self.tableView.reloadData()
-            }
-        }
-        
         GezondUser.observeInvitesAndFriends(directory: "friends", eventType: .childAdded) { (friend) in
             if let friend = friend {
                 self.matrixModel[1].append(friend)
