@@ -1,0 +1,921 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1460E954607DF799CEB32FF4 /* Pods_gezondTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331D39454462929216BE88DA /* Pods_gezondTests.framework */; };
+		2F15AADB1FE7A3650024E6D9 /* GUserLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F15AADA1FE7A3650024E6D9 /* GUserLight.swift */; };
+		2F3F823C1FD8379E00245AD7 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F823B1FD8379E00245AD7 /* UserViewController.swift */; };
+		2F3F82411FD99E3F00245AD7 /* ProfileEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F82401FD99E3F00245AD7 /* ProfileEntryCell.swift */; };
+		2F3F82471FDA9B8D00245AD7 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F82461FDA9B8D00245AD7 /* CreatePostViewController.swift */; };
+		2F3F824D1FDAD45100245AD7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F824C1FDAD45100245AD7 /* Post.swift */; };
+		2F80D0681FD6DE4000BA74AA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F80D0661FD6DE4000BA74AA /* FBSDKCoreKit.framework */; };
+		2F80D0691FD6DE4000BA74AA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F80D0671FD6DE4000BA74AA /* FBSDKLoginKit.framework */; };
+		2FC7B72E1FE2F122003F335A /* GezondUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC7B72D1FE2F122003F335A /* GezondUser.swift */; };
+		2FC7B7331FE319EB003F335A /* GezondPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC7B7321FE319EB003F335A /* GezondPost.swift */; };
+		2FC7B7371FE42BA4003F335A /* ProfileHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC7B7361FE42BA4003F335A /* ProfileHeaderReusableView.swift */; };
+		2FC7B73A1FE43406003F335A /* Jansky.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FC7B7391FE43406003F335A /* Jansky.ttf */; };
+		2FDEC41F1FD6C9260015E500 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDEC41E1FD6C9260015E500 /* AppDelegate.swift */; };
+		2FDEC4211FD6C9260015E500 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDEC4201FD6C9260015E500 /* LoginViewController.swift */; };
+		2FDEC4241FD6C9260015E500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FDEC4221FD6C9260015E500 /* Main.storyboard */; };
+		2FDEC4261FD6C9260015E500 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDEC4251FD6C9260015E500 /* Assets.xcassets */; };
+		2FDEC4291FD6C9260015E500 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FDEC4271FD6C9260015E500 /* LaunchScreen.storyboard */; };
+		2FDEC4341FD6C9260015E500 /* gezondTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDEC4331FD6C9260015E500 /* gezondTests.swift */; };
+		2FDEC43F1FD6C9270015E500 /* gezondUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDEC43E1FD6C9270015E500 /* gezondUITests.swift */; };
+		2FDEC44D1FD6D21A0015E500 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FDEC44C1FD6D21A0015E500 /* GoogleService-Info.plist */; };
+		2FF002D21FDB207200296221 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF002D11FDB207200296221 /* AppTabBarController.swift */; };
+		2FF002DD1FDEBA4D00296221 /* GUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF002DC1FDEBA4D00296221 /* GUser.swift */; };
+		2FF002E41FDFF65000296221 /* FriendsBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF002E31FDFF65000296221 /* FriendsBaseTableViewController.swift */; };
+		2FF002E61FDFF73700296221 /* FriendsMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF002E51FDFF73700296221 /* FriendsMainTableViewController.swift */; };
+		2FF002E81FDFF85D00296221 /* FoundFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF002E71FDFF85D00296221 /* FoundFriendsTableViewController.swift */; };
+		C0069923029E9E30014FA6ED /* Pods_gezondUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9E08E1A4948314FB038F48 /* Pods_gezondUITests.framework */; };
+		CDD7BDCD37FB434C9417EBE2 /* Pods_gezond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E76907856C33E40B7C98663E /* Pods_gezond.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2FDEC4301FD6C9260015E500 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FDEC4131FD6C9260015E500 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FDEC41A1FD6C9260015E500;
+			remoteInfo = gezond;
+		};
+		2FDEC43B1FD6C9260015E500 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FDEC4131FD6C9260015E500 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FDEC41A1FD6C9260015E500;
+			remoteInfo = gezond;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F15AADA1FE7A3650024E6D9 /* GUserLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUserLight.swift; sourceTree = "<group>"; };
+		2F3F82381FD6EAEC00245AD7 /* FacebookSDK.0 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FacebookSDK.0; path = ../../FacebookSDK.0; sourceTree = "<group>"; };
+		2F3F823B1FD8379E00245AD7 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		2F3F82401FD99E3F00245AD7 /* ProfileEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEntryCell.swift; sourceTree = "<group>"; };
+		2F3F82461FDA9B8D00245AD7 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		2F3F824C1FDAD45100245AD7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2F80D0661FD6DE4000BA74AA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		2F80D0671FD6DE4000BA74AA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		2FC7B72D1FE2F122003F335A /* GezondUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GezondUser.swift; sourceTree = "<group>"; };
+		2FC7B7321FE319EB003F335A /* GezondPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GezondPost.swift; sourceTree = "<group>"; };
+		2FC7B7361FE42BA4003F335A /* ProfileHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderReusableView.swift; sourceTree = "<group>"; };
+		2FC7B7391FE43406003F335A /* Jansky.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jansky.ttf; sourceTree = "<group>"; };
+		2FDEC41B1FD6C9260015E500 /* gezond.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gezond.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FDEC41E1FD6C9260015E500 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2FDEC4201FD6C9260015E500 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2FDEC4231FD6C9260015E500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2FDEC4251FD6C9260015E500 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2FDEC4281FD6C9260015E500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2FDEC42A1FD6C9260015E500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FDEC42F1FD6C9260015E500 /* gezondTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gezondTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FDEC4331FD6C9260015E500 /* gezondTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gezondTests.swift; sourceTree = "<group>"; };
+		2FDEC4351FD6C9260015E500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FDEC43A1FD6C9260015E500 /* gezondUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gezondUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FDEC43E1FD6C9270015E500 /* gezondUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gezondUITests.swift; sourceTree = "<group>"; };
+		2FDEC4401FD6C9270015E500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FDEC44C1FD6D21A0015E500 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2FF002D11FDB207200296221 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
+		2FF002DC1FDEBA4D00296221 /* GUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUser.swift; sourceTree = "<group>"; };
+		2FF002E31FDFF65000296221 /* FriendsBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsBaseTableViewController.swift; sourceTree = "<group>"; };
+		2FF002E51FDFF73700296221 /* FriendsMainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsMainTableViewController.swift; sourceTree = "<group>"; };
+		2FF002E71FDFF85D00296221 /* FoundFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundFriendsTableViewController.swift; sourceTree = "<group>"; };
+		331D39454462929216BE88DA /* Pods_gezondTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gezondTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B9E08E1A4948314FB038F48 /* Pods_gezondUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gezondUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98A7C6F0BCC320632028AC00 /* Pods-gezondTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gezondTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gezondTests/Pods-gezondTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A7C2A6D1E20792D5BC17F541 /* Pods-gezond.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gezond.release.xcconfig"; path = "Pods/Target Support Files/Pods-gezond/Pods-gezond.release.xcconfig"; sourceTree = "<group>"; };
+		C23644920E93DEABB7C08345 /* Pods-gezondUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gezondUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gezondUITests/Pods-gezondUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA8B3BAB273EAE74EB1C9A15 /* Pods-gezondUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gezondUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-gezondUITests/Pods-gezondUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CE6225C484F4E4C87D557D07 /* Pods-gezond.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gezond.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gezond/Pods-gezond.debug.xcconfig"; sourceTree = "<group>"; };
+		E35277FCB3B3759DFE7A6E9F /* Pods-gezondTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gezondTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-gezondTests/Pods-gezondTests.release.xcconfig"; sourceTree = "<group>"; };
+		E76907856C33E40B7C98663E /* Pods_gezond.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gezond.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FDEC4181FD6C9260015E500 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD7BDCD37FB434C9417EBE2 /* Pods_gezond.framework in Frameworks */,
+				2F80D0681FD6DE4000BA74AA /* FBSDKCoreKit.framework in Frameworks */,
+				2F80D0691FD6DE4000BA74AA /* FBSDKLoginKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FDEC42C1FD6C9260015E500 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1460E954607DF799CEB32FF4 /* Pods_gezondTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FDEC4371FD6C9260015E500 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0069923029E9E30014FA6ED /* Pods_gezondUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F3F82481FDAAE7300245AD7 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				2FC7B72D1FE2F122003F335A /* GezondUser.swift */,
+				2FC7B7321FE319EB003F335A /* GezondPost.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		2FC7B72F1FE2F975003F335A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2FDEC4201FD6C9260015E500 /* LoginViewController.swift */,
+				2F3F823B1FD8379E00245AD7 /* UserViewController.swift */,
+				2F3F82461FDA9B8D00245AD7 /* CreatePostViewController.swift */,
+				2FF002E31FDFF65000296221 /* FriendsBaseTableViewController.swift */,
+				2FF002E51FDFF73700296221 /* FriendsMainTableViewController.swift */,
+				2FF002E71FDFF85D00296221 /* FoundFriendsTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2FC7B7301FE2F9B9003F335A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FF002DC1FDEBA4D00296221 /* GUser.swift */,
+				2F3F824C1FDAD45100245AD7 /* Post.swift */,
+				2F15AADA1FE7A3650024E6D9 /* GUserLight.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2FC7B7311FE2F9EB003F335A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F3F82401FD99E3F00245AD7 /* ProfileEntryCell.swift */,
+				2FC7B7361FE42BA4003F335A /* ProfileHeaderReusableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2FC7B7381FE433E9003F335A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2FC7B7391FE43406003F335A /* Jansky.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2FDEC4121FD6C9260015E500 = {
+			isa = PBXGroup;
+			children = (
+				2FDEC41D1FD6C9260015E500 /* gezond */,
+				2FDEC4321FD6C9260015E500 /* gezondTests */,
+				2FDEC43D1FD6C9270015E500 /* gezondUITests */,
+				2FDEC41C1FD6C9260015E500 /* Products */,
+				3FF82043B52032313F6D19B7 /* Pods */,
+				5703834DC8516610A664A507 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2FDEC41C1FD6C9260015E500 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FDEC41B1FD6C9260015E500 /* gezond.app */,
+				2FDEC42F1FD6C9260015E500 /* gezondTests.xctest */,
+				2FDEC43A1FD6C9260015E500 /* gezondUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2FDEC41D1FD6C9260015E500 /* gezond */ = {
+			isa = PBXGroup;
+			children = (
+				2FC7B7381FE433E9003F335A /* Fonts */,
+				2FC7B7301FE2F9B9003F335A /* Model */,
+				2FC7B7311FE2F9EB003F335A /* Views */,
+				2FC7B72F1FE2F975003F335A /* ViewControllers */,
+				2F3F82481FDAAE7300245AD7 /* Firebase */,
+				2FDEC41E1FD6C9260015E500 /* AppDelegate.swift */,
+				2FDEC4221FD6C9260015E500 /* Main.storyboard */,
+				2FDEC4251FD6C9260015E500 /* Assets.xcassets */,
+				2FDEC4271FD6C9260015E500 /* LaunchScreen.storyboard */,
+				2FDEC42A1FD6C9260015E500 /* Info.plist */,
+				2FDEC44C1FD6D21A0015E500 /* GoogleService-Info.plist */,
+				2FF002D11FDB207200296221 /* AppTabBarController.swift */,
+			);
+			path = gezond;
+			sourceTree = "<group>";
+		};
+		2FDEC4321FD6C9260015E500 /* gezondTests */ = {
+			isa = PBXGroup;
+			children = (
+				2FDEC4331FD6C9260015E500 /* gezondTests.swift */,
+				2FDEC4351FD6C9260015E500 /* Info.plist */,
+			);
+			path = gezondTests;
+			sourceTree = "<group>";
+		};
+		2FDEC43D1FD6C9270015E500 /* gezondUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2FDEC43E1FD6C9270015E500 /* gezondUITests.swift */,
+				2FDEC4401FD6C9270015E500 /* Info.plist */,
+			);
+			path = gezondUITests;
+			sourceTree = "<group>";
+		};
+		3FF82043B52032313F6D19B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE6225C484F4E4C87D557D07 /* Pods-gezond.debug.xcconfig */,
+				A7C2A6D1E20792D5BC17F541 /* Pods-gezond.release.xcconfig */,
+				98A7C6F0BCC320632028AC00 /* Pods-gezondTests.debug.xcconfig */,
+				E35277FCB3B3759DFE7A6E9F /* Pods-gezondTests.release.xcconfig */,
+				C23644920E93DEABB7C08345 /* Pods-gezondUITests.debug.xcconfig */,
+				CA8B3BAB273EAE74EB1C9A15 /* Pods-gezondUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5703834DC8516610A664A507 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F3F82381FD6EAEC00245AD7 /* FacebookSDK.0 */,
+				2F80D0661FD6DE4000BA74AA /* FBSDKCoreKit.framework */,
+				2F80D0671FD6DE4000BA74AA /* FBSDKLoginKit.framework */,
+				E76907856C33E40B7C98663E /* Pods_gezond.framework */,
+				331D39454462929216BE88DA /* Pods_gezondTests.framework */,
+				4B9E08E1A4948314FB038F48 /* Pods_gezondUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2FDEC41A1FD6C9260015E500 /* gezond */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FDEC4431FD6C9270015E500 /* Build configuration list for PBXNativeTarget "gezond" */;
+			buildPhases = (
+				4CA8C38D7C348586B81B43CD /* [CP] Check Pods Manifest.lock */,
+				2FDEC4171FD6C9260015E500 /* Sources */,
+				2FDEC4181FD6C9260015E500 /* Frameworks */,
+				2FDEC4191FD6C9260015E500 /* Resources */,
+				A41B7BCA8EFA9A4B226043CA /* [CP] Embed Pods Frameworks */,
+				9F86292624618840A045C73D /* [CP] Copy Pods Resources */,
+				2FC7B72C1FE1385D003F335A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gezond;
+			productName = gezond;
+			productReference = 2FDEC41B1FD6C9260015E500 /* gezond.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2FDEC42E1FD6C9260015E500 /* gezondTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FDEC4461FD6C9270015E500 /* Build configuration list for PBXNativeTarget "gezondTests" */;
+			buildPhases = (
+				8FCEF1730DC44C3F22DDA6E5 /* [CP] Check Pods Manifest.lock */,
+				2FDEC42B1FD6C9260015E500 /* Sources */,
+				2FDEC42C1FD6C9260015E500 /* Frameworks */,
+				2FDEC42D1FD6C9260015E500 /* Resources */,
+				A63F333124A071C8D8BC438F /* [CP] Embed Pods Frameworks */,
+				66DE5F3072FBFDEC990A626A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FDEC4311FD6C9260015E500 /* PBXTargetDependency */,
+			);
+			name = gezondTests;
+			productName = gezondTests;
+			productReference = 2FDEC42F1FD6C9260015E500 /* gezondTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2FDEC4391FD6C9260015E500 /* gezondUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FDEC4491FD6C9270015E500 /* Build configuration list for PBXNativeTarget "gezondUITests" */;
+			buildPhases = (
+				0733F8373114D20BA898E551 /* [CP] Check Pods Manifest.lock */,
+				2FDEC4361FD6C9260015E500 /* Sources */,
+				2FDEC4371FD6C9260015E500 /* Frameworks */,
+				2FDEC4381FD6C9260015E500 /* Resources */,
+				8A2415AE2BFEED245E942D75 /* [CP] Embed Pods Frameworks */,
+				C35074807AAB62552E4C56FE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FDEC43C1FD6C9260015E500 /* PBXTargetDependency */,
+			);
+			name = gezondUITests;
+			productName = gezondUITests;
+			productReference = 2FDEC43A1FD6C9260015E500 /* gezondUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FDEC4131FD6C9260015E500 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Drama Media";
+				TargetAttributes = {
+					2FDEC41A1FD6C9260015E500 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Manual;
+					};
+					2FDEC42E1FD6C9260015E500 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2FDEC41A1FD6C9260015E500;
+					};
+					2FDEC4391FD6C9260015E500 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2FDEC41A1FD6C9260015E500;
+					};
+				};
+			};
+			buildConfigurationList = 2FDEC4161FD6C9260015E500 /* Build configuration list for PBXProject "gezond" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2FDEC4121FD6C9260015E500;
+			productRefGroup = 2FDEC41C1FD6C9260015E500 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FDEC41A1FD6C9260015E500 /* gezond */,
+				2FDEC42E1FD6C9260015E500 /* gezondTests */,
+				2FDEC4391FD6C9260015E500 /* gezondUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FDEC4191FD6C9260015E500 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FC7B73A1FE43406003F335A /* Jansky.ttf in Resources */,
+				2FDEC4291FD6C9260015E500 /* LaunchScreen.storyboard in Resources */,
+				2FDEC44D1FD6D21A0015E500 /* GoogleService-Info.plist in Resources */,
+				2FDEC4261FD6C9260015E500 /* Assets.xcassets in Resources */,
+				2FDEC4241FD6C9260015E500 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FDEC42D1FD6C9260015E500 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FDEC4381FD6C9260015E500 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0733F8373114D20BA898E551 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-gezondUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FC7B72C1FE1385D003F335A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4447bb9bb7ddef529a2f924a1b49177274084b91 3a6aa49d39614cd14f8891d5eccf6a36759a8824cea595a8dd0da7ce94c0e288";
+		};
+		4CA8C38D7C348586B81B43CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-gezond-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66DE5F3072FBFDEC990A626A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gezondTests/Pods-gezondTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A2415AE2BFEED245E942D75 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gezondUITests/Pods-gezondUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FCEF1730DC44C3F22DDA6E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-gezondTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F86292624618840A045C73D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gezond/Pods-gezond-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A41B7BCA8EFA9A4B226043CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-gezond/Pods-gezond-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gezond/Pods-gezond-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A63F333124A071C8D8BC438F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gezondTests/Pods-gezondTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C35074807AAB62552E4C56FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gezondUITests/Pods-gezondUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FDEC4171FD6C9260015E500 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F3F82411FD99E3F00245AD7 /* ProfileEntryCell.swift in Sources */,
+				2F3F823C1FD8379E00245AD7 /* UserViewController.swift in Sources */,
+				2FDEC4211FD6C9260015E500 /* LoginViewController.swift in Sources */,
+				2FC7B72E1FE2F122003F335A /* GezondUser.swift in Sources */,
+				2FC7B7371FE42BA4003F335A /* ProfileHeaderReusableView.swift in Sources */,
+				2FF002E41FDFF65000296221 /* FriendsBaseTableViewController.swift in Sources */,
+				2F15AADB1FE7A3650024E6D9 /* GUserLight.swift in Sources */,
+				2FF002E61FDFF73700296221 /* FriendsMainTableViewController.swift in Sources */,
+				2FF002DD1FDEBA4D00296221 /* GUser.swift in Sources */,
+				2F3F824D1FDAD45100245AD7 /* Post.swift in Sources */,
+				2FC7B7331FE319EB003F335A /* GezondPost.swift in Sources */,
+				2FDEC41F1FD6C9260015E500 /* AppDelegate.swift in Sources */,
+				2FF002D21FDB207200296221 /* AppTabBarController.swift in Sources */,
+				2F3F82471FDA9B8D00245AD7 /* CreatePostViewController.swift in Sources */,
+				2FF002E81FDFF85D00296221 /* FoundFriendsTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FDEC42B1FD6C9260015E500 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FDEC4341FD6C9260015E500 /* gezondTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FDEC4361FD6C9260015E500 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FDEC43F1FD6C9270015E500 /* gezondUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2FDEC4311FD6C9260015E500 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FDEC41A1FD6C9260015E500 /* gezond */;
+			targetProxy = 2FDEC4301FD6C9260015E500 /* PBXContainerItemProxy */;
+		};
+		2FDEC43C1FD6C9260015E500 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FDEC41A1FD6C9260015E500 /* gezond */;
+			targetProxy = 2FDEC43B1FD6C9260015E500 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2FDEC4221FD6C9260015E500 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FDEC4231FD6C9260015E500 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2FDEC4271FD6C9260015E500 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FDEC4281FD6C9260015E500 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2FDEC4411FD6C9270015E500 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2FDEC4421FD6C9270015E500 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2FDEC4441FD6C9270015E500 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE6225C484F4E4C87D557D07 /* Pods-gezond.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = VT68NYD9K6;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"\"~/Jairo/FacebookSDK.0\"",
+				);
+				INFOPLIST_FILE = gezond/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dramamedia.gezondJairo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9fa003d0-5702-4c64-98b1-b4676cfafe5a";
+				PROVISIONING_PROFILE_SPECIFIER = GezondProfile;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2FDEC4451FD6C9270015E500 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7C2A6D1E20792D5BC17F541 /* Pods-gezond.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = VT68NYD9K6;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"\"~/Jairo/FacebookSDK.0\"",
+				);
+				INFOPLIST_FILE = gezond/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dramamedia.gezondJairo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2f8f68a9-0cb7-4b39-9430-5fd7c6c0f055";
+				PROVISIONING_PROFILE_SPECIFIER = GezondProfile;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2FDEC4471FD6C9270015E500 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98A7C6F0BCC320632028AC00 /* Pods-gezondTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LB83AYN283;
+				INFOPLIST_FILE = gezondTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dramamedia.gezondTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gezond.app/gezond";
+			};
+			name = Debug;
+		};
+		2FDEC4481FD6C9270015E500 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E35277FCB3B3759DFE7A6E9F /* Pods-gezondTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LB83AYN283;
+				INFOPLIST_FILE = gezondTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dramamedia.gezondTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gezond.app/gezond";
+			};
+			name = Release;
+		};
+		2FDEC44A1FD6C9270015E500 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C23644920E93DEABB7C08345 /* Pods-gezondUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LB83AYN283;
+				INFOPLIST_FILE = gezondUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dramamedia.gezondUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = gezond;
+			};
+			name = Debug;
+		};
+		2FDEC44B1FD6C9270015E500 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA8B3BAB273EAE74EB1C9A15 /* Pods-gezondUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LB83AYN283;
+				INFOPLIST_FILE = gezondUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dramamedia.gezondUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = gezond;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FDEC4161FD6C9260015E500 /* Build configuration list for PBXProject "gezond" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FDEC4411FD6C9270015E500 /* Debug */,
+				2FDEC4421FD6C9270015E500 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FDEC4431FD6C9270015E500 /* Build configuration list for PBXNativeTarget "gezond" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FDEC4441FD6C9270015E500 /* Debug */,
+				2FDEC4451FD6C9270015E500 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FDEC4461FD6C9270015E500 /* Build configuration list for PBXNativeTarget "gezondTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FDEC4471FD6C9270015E500 /* Debug */,
+				2FDEC4481FD6C9270015E500 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FDEC4491FD6C9270015E500 /* Build configuration list for PBXNativeTarget "gezondUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FDEC44A1FD6C9270015E500 /* Debug */,
+				2FDEC44B1FD6C9270015E500 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2FDEC4131FD6C9260015E500 /* Project object */;
+}
