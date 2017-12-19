@@ -10,14 +10,14 @@ import UIKit
 import Firebase
 import AlamofireImage
 
-class UserViewController: UIViewController {
+class UserVC: UIViewController {
     
     @IBOutlet weak var postsCollectionView: UICollectionView!
     
     var userPosts = [GPost]()
     let cameraPicker = UIImagePickerController()
     var isFriendsProfile = false
-    var uid = ""
+    var userID = ""
     var currentUser: GUser?
     
     override func viewDidLoad() {
@@ -34,20 +34,19 @@ class UserViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
 
         if !isFriendsProfile {
-            uid = Auth.auth().currentUser?.uid ?? ""
+            userID = Auth.auth().currentUser?.uid ?? ""
         }
         
-        GezondUser.get(uid: uid) { (user) in
+        UserFirebase.get(userID: userID) { (user) in
             self.currentUser = user
             self.postsCollectionView.reloadSections(IndexSet(integer: 0))
-            GezondPost.observeUserPosts(userID: self.uid, eventType: .childAdded) { (post) in
+            PostFirebase.observeUserPosts(userID: self.userID, eventType: .childAdded) { (post) in
                 guard let userPost = post else { return }
-                self.userPosts.append(userPost)
-                let row = self.userPosts.count - 1
-                let indexPath = IndexPath(row: row, section: 0)
+                self.userPosts.insert(userPost, at: 0)
+                let indexPath = IndexPath(row: 0, section: 0)
                 self.postsCollectionView.insertItems(at: [indexPath])
             }
-            GezondPost.observeUserPosts(userID: self.uid, eventType: .childRemoved, completion: { (post) in
+            PostFirebase.observeUserPosts(userID: self.userID, eventType: .childRemoved, completion: { (post) in
                 guard let userPost = post else { return }
                 if let index = self.userPosts.index(where: { (aPost) -> Bool in
                     aPost.imageURL.absoluteString == userPost.imageURL.absoluteString
@@ -67,7 +66,7 @@ class UserViewController: UIViewController {
     }
 }
 
-extension UserViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension UserVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.size.width
         return CGSize(width: width/3, height: width/3)
@@ -92,63 +91,85 @@ extension UserViewController: UICollectionViewDelegate, UICollectionViewDelegate
     }
 }
 
-extension UserViewController: UICollectionViewDataSource {
+extension UserVC: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return userPosts.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let emptyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "emptyCell", for: indexPath)
         if userPosts.count == 0 {
-            let newEntryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "newElementCell", for: indexPath)
-            newEntryCell.contentView.alpha = isFriendsProfile ? 0 : 1
-            newEntryCell.isUserInteractionEnabled = !isFriendsProfile
-            return newEntryCell
+            return configureAddPostCell(indexPath: indexPath)
         } else {
-            switch indexPath.row {
-            case 0..<userPosts.count:
-                guard let entryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "entryElementCell", for: indexPath) as? ProfileEntryCell else { return emptyCell }
-                entryCell.imageView.af_setImage(withURL: userPosts[indexPath.row].imageURL)
-                return entryCell
-            case userPosts.count:
-                let newEntryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "newElementCell", for: indexPath)
-                return newEntryCell
-            default:
-                return emptyCell
+            if indexPath.row == userPosts.count {
+                return configureAddPostCell(indexPath: indexPath)
+            } else {
+                return configurePostCell(indexPath: indexPath)
             }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let emptyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "emptyCell", for: indexPath)
-        switch kind {
-        case UICollectionElementKindSectionHeader:
-            guard let header = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: "userHeader",
-                for: indexPath
-                ) as? UserHeaderCollectionReusableView,
-                let user = currentUser else { return emptyCell }
-            header.nameLabel.text = user.name
-            header.avatarImageView.af_setImage(withURL: user.imageURL)
-            return header
-        default:
-            return emptyCell
+        if kind == UICollectionElementKindSectionHeader {
+            return configureHeader(indexPath: indexPath)
+        } else {
+            return UICollectionReusableView()
         }
     }
 }
 
-extension UserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension UserVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        guard let createPostVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "createPost") as? CreatePostViewController else { return }
+        guard let createPostVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "createPost") as? CreateVC else { return }
         createPostVC.image = image
+        createPostVC.userID = self.userID
         cameraPicker.pushViewController(createPostVC, animated: true)
+    }
+}
+
+extension UserVC {
+    
+    //collectionView Cells
+    
+    func configureAddPostCell(indexPath: IndexPath) -> UICollectionViewCell {
+        let newEntryCell = postsCollectionView.dequeueReusableCell(withReuseIdentifier: "newElementCell", for: indexPath)
+        newEntryCell.contentView.alpha = isFriendsProfile ? 0 : 1
+        newEntryCell.isUserInteractionEnabled = !isFriendsProfile
+        return newEntryCell
+    }
+    
+    func configurePostCell(indexPath: IndexPath) -> UICollectionViewCell {
+        let emptyCell = postsCollectionView.dequeueReusableCell(
+            withReuseIdentifier: "emptyCell",
+            for: indexPath)
+        guard let postCell = postsCollectionView.dequeueReusableCell(
+            withReuseIdentifier: "entryElementCell",
+            for: indexPath) as? ProfileEntryCell else { return emptyCell }
+        postCell.imageView.af_setImageGezond(url: userPosts[indexPath.row].imageURL)
+        return postCell
+    }
+    
+    func configureHeader(indexPath: IndexPath) -> UICollectionReusableView {
+        let emptyCell = postsCollectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionElementKindSectionHeader,
+            withReuseIdentifier: "userHeader",
+            for: indexPath
+        )
+        guard let header = postsCollectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionElementKindSectionHeader,
+            withReuseIdentifier: "userHeader",
+            for: indexPath
+            ) as? UserHeaderCollectionReusableView,
+            let user = currentUser else { return emptyCell }
+        header.nameLabel.text = user.name
+        header.avatarImageView.af_setImageGezond(url: user.imageURL)
+        return header
     }
 }

@@ -9,22 +9,18 @@
 import UIKit
 import Firebase
 
-class CreatePostViewController: UIViewController {
+class CreateVC: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     
     var image: UIImage = UIImage()
-    var currentUser: User?
-    var ref = Database.database().reference()
+    var userID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = image
         textView.becomeFirstResponder()
-        if let currentUser = Auth.auth().currentUser {
-            self.currentUser = currentUser
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,8 +29,7 @@ class CreatePostViewController: UIViewController {
     }
     
     @IBAction func postButtonTapped(_ sender: Any) {
-        guard let user = currentUser else { return }
-        GezondPost.create(image: image, text: textView.text, uid: user.uid) { (error) in
+        PostFirebase.create(image: image, text: textView.text, userID: userID) { (error) in
             if error != nil {
                 print(error.debugDescription)
             } else {

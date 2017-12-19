@@ -1,4 +1,4 @@
-//
+ //
 //  User.swift
 //  gezond
 //
@@ -10,7 +10,7 @@ import Foundation
 import FBSDKLoginKit
 import Firebase
 
-class GezondUser {
+class UserFirebase {
     
     static let usersRef = Database.database().reference().child("users")
     static let currentUser = Auth.auth().currentUser
@@ -26,7 +26,7 @@ class GezondUser {
             
             usersRef.child(user.uid).child("name").setValue(user.displayName)
         usersRef.child(user.uid).child("imageURL").setValue(user.photoURL?.absoluteString)
-            usersRef.child(user.uid).child("uid").setValue(user.uid)
+            usersRef.child(user.uid).child("userID").setValue(user.uid)
             completion(true)
         })
     }
@@ -44,13 +44,13 @@ class GezondUser {
             }
             let friends: [GUser] = optionalUserDictionaries.flatMap({ (optionalFriend) -> GUser? in
                 let friend = GUser.init(userDictionary: optionalFriend)
-                if let inviteUIDs = optionalFriend?["invites"] as? [String: String] {
-                    if inviteUIDs.values.contains(user.uid) {
+                if let inviteUIDs = optionalFriend?["invites"] as? [String: Any] {
+                    if inviteUIDs.keys.contains(user.uid) {
                         friend?.isInvited = true
                     }
                 }
-                if let friendsUIDs = optionalFriend?["friends"] as? [String: String] {
-                    if friendsUIDs.values.contains(user.uid) {
+                if let friendsUIDs = optionalFriend?["friends"] as? [String: Any] {
+                    if friendsUIDs.keys.contains(user.uid) {
                         friend?.isFriend = true
                     }
                 }
@@ -60,41 +60,23 @@ class GezondUser {
         })
     }
     
-    class func invite(uid: String, completion: @escaping (Bool)->Void) {
+    class func invite(userID: String, completion: @escaping (Bool)->Void) {
         guard let user = currentUser else { completion(false); return }
-        let invitesRef = usersRef.child(uid).child("invites")
-        let userObject = ["uid": user.uid, "name": user.displayName, "imageURL": user.photoURL?.absoluteString]
-        invitesRef.child(uid).setValue(userObject)
+        let invitesRef = usersRef.child(userID).child("invites")
+        let userObject = ["userID": user.uid, "name": user.displayName, "imageURL": user.photoURL?.absoluteString]
+        invitesRef.child(user.uid).setValue(userObject)
         completion(true)
     }
     
-    class func uninvite(uid: String, completion: @escaping (Bool)->Void) {
+    class func uninvite(userID: String, completion: @escaping (Bool)->Void) {
         guard let user = currentUser else { completion(false); return}
-        let friendRef = usersRef.child(uid).child("invites")
+        let friendRef = usersRef.child(userID).child("invites")
         friendRef.queryEqual(toValue: user.uid).ref.removeValue()
         completion(true)
     }
     
-    class func getInvitesOrFriends(type: String, completion: @escaping ([GUserLight])->Void) {
-        guard let user = currentUser else { completion([]); return }
-        usersRef.child(user.uid).child(type).observeSingleEvent(of: .value){ (snapshot) in
-            DispatchQueue.main.async {
-                var optionalInvitesDictionary: [[String: String]?] = []
-                let enumerator = snapshot.children
-                while let invite = enumerator.nextObject() as? DataSnapshot {
-                    let inviteDictionary = invite.value as? [String: String]
-                    optionalInvitesDictionary.append(inviteDictionary)
-                }
-                let invites = optionalInvitesDictionary.flatMap({ (optionalInvite) -> GUserLight? in
-                    GUserLight.init(userDictionary: optionalInvite)
-                })
-                completion(invites)
-            }
-        }
-    }
-    
-    class func get(uid: String, completion: @escaping (GUser?)->Void) {
-        usersRef.child(uid).observeSingleEvent(of: .value) { (snapshot) in
+    class func get(userID: String, completion: @escaping (GUser?)->Void) {
+        usersRef.child(userID).observeSingleEvent(of: .value) { (snapshot) in
             let optionalUser = snapshot.value as? [String: Any]
             let user = GUser(userDictionary: optionalUser)
             completion(user)
@@ -114,17 +96,17 @@ class GezondUser {
     
     class func acceptInvite(inviteUser: GUserLight, completion: @escaping (Bool)->Void) {
         guard let user = currentUser else { completion(false); return }
-        usersRef.child(user.uid).child("invites").child(inviteUser.uid).ref.removeValue()
-        let friendObject = ["uid": inviteUser.uid, "name": inviteUser.name, "imageURL": inviteUser.imageURL.absoluteString]
-        usersRef.child(user.uid).child("friends").child(inviteUser.uid).setValue(friendObject)
-        let yourObject = ["uid": user.uid, "name": user.displayName, "imageURL": user.photoURL?.absoluteString]
-        usersRef.child(inviteUser.uid).child("friends").child(user.uid).setValue(yourObject)
+        usersRef.child(user.uid).child("invites").child(inviteUser.userID).ref.removeValue()
+        let friendObject = ["userID": inviteUser.userID, "name": inviteUser.name, "imageURL": inviteUser.imageURL.absoluteString]
+        usersRef.child(user.uid).child("friends").child(inviteUser.userID).setValue(friendObject)
+        let yourObject = ["userID": user.uid, "name": user.displayName, "imageURL": user.photoURL?.absoluteString]
+        usersRef.child(inviteUser.userID).child("friends").child(user.uid).setValue(yourObject)
         completion(true)
     }
     
     class func declineInvite(inviteUser: GUserLight, completion: @escaping (Bool)->Void) {
         guard let user = currentUser else { completion(false); return }
-        usersRef.child(user.uid).child("invites").child(inviteUser.uid).ref.removeValue()
+        usersRef.child(user.uid).child("invites").child(inviteUser.userID).ref.removeValue()
         completion(true)
     }
 }

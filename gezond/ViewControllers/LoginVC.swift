@@ -11,7 +11,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginVC: UIViewController {
 
     let loginButton = FBSDKLoginButton()
     var user: User!
@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
         loginButton.center = view.center
         view.addSubview(loginButton)
         
-        GezondUser.login { (status) in
+        UserFirebase.login { (status) in
             if status {
                 self.performSegue(withIdentifier: "enterApp", sender: self)
             }
@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: FBSDKLoginButtonDelegate {
+extension LoginVC: FBSDKLoginButtonDelegate {
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("logout")
@@ -49,7 +49,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
             loginFailAlert.addAction(okAction)
             present(loginFailAlert, animated: true, completion: nil)
         } else {
-            GezondUser.login { (status) in
+            UserFirebase.login { (status) in
                 if status {
                     self.performSegue(withIdentifier: "enterApp", sender: self)
                 }

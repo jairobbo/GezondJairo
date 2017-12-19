@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsMainTableViewController: FriendsBaseTableViewController {
+class FriendsVC: FriendsBaseTableViewController {
 
     var matrixModel: [[GUserLight]] = [[], []]
     var headerNames: [String] = ["Uitnodigingen", "Vrienden"]
@@ -18,7 +18,7 @@ class FriendsMainTableViewController: FriendsBaseTableViewController {
         
         title = "Vrienden"
         
-        let foundFriendsTVC = FoundFriendsTableViewController()
+        let foundFriendsTVC = SearchVC()
         navigationController?.navigationBar.prefersLargeTitles = true
         let searchController = UISearchController(searchResultsController: foundFriendsTVC)
         searchController.delegate = self
@@ -31,7 +31,7 @@ class FriendsMainTableViewController: FriendsBaseTableViewController {
         
         definesPresentationContext = true
         
-        GezondUser.observeInvitesAndFriends(directory: "friends", eventType: .childAdded) { (friend) in
+        UserFirebase.observeInvitesAndFriends(directory: "friends", eventType: .childAdded) { (friend) in
             if let friend = friend {
                 self.matrixModel[1].append(friend)
                 let row = self.matrixModel[1].count - 1
@@ -40,10 +40,10 @@ class FriendsMainTableViewController: FriendsBaseTableViewController {
             }
         }
         
-        GezondUser.observeInvitesAndFriends(directory: "friends", eventType: .childRemoved) { (friend) in
+        UserFirebase.observeInvitesAndFriends(directory: "friends", eventType: .childRemoved) { (friend) in
             if let friend = friend {
                 let optionalIndex = self.matrixModel[1].index(where: { (anotherFriend) -> Bool in
-                    friend.uid == anotherFriend.uid
+                    friend.userID == anotherFriend.userID
                 })
                 guard let index = optionalIndex else { return }
                 self.matrixModel[1].remove(at: index)
@@ -52,7 +52,7 @@ class FriendsMainTableViewController: FriendsBaseTableViewController {
             }
         }
         
-        GezondUser.observeInvitesAndFriends(directory: "invites", eventType: .childAdded) { (friend) in
+        UserFirebase.observeInvitesAndFriends(directory: "invites", eventType: .childAdded) { (friend) in
             if let friend = friend {
                 self.matrixModel[0].append(friend)
                 let row = self.matrixModel[0].count - 1
@@ -61,10 +61,10 @@ class FriendsMainTableViewController: FriendsBaseTableViewController {
             }
         }
         
-        GezondUser.observeInvitesAndFriends(directory: "invites", eventType: .childRemoved) { (friend) in
+        UserFirebase.observeInvitesAndFriends(directory: "invites", eventType: .childRemoved) { (friend) in
             if let friend = friend {
                 let optionalIndex = self.matrixModel[0].index(where: { (anotherFriend) -> Bool in
-                    friend.uid == anotherFriend.uid
+                    friend.userID == anotherFriend.userID
                 })
                 guard let index = optionalIndex else { return }
                 self.matrixModel[0].remove(at: index)
@@ -75,7 +75,7 @@ class FriendsMainTableViewController: FriendsBaseTableViewController {
     }
 }
 
-extension FriendsMainTableViewController {
+extension FriendsVC {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return headerNames.count
@@ -121,23 +121,23 @@ extension FriendsMainTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            let uid = matrixModel[indexPath.section][indexPath.row].uid
-            guard let userVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "userVC") as? UserViewController else { return }
-            userVC.uid = uid
+            let userID = matrixModel[indexPath.section][indexPath.row].userID
+            guard let userVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "userVC") as? UserVC else { return }
+            userVC.userID = userID
             userVC.isFriendsProfile = true
             navigationController?.pushViewController(userVC, animated: true)
         }
     }
 }
 
-extension FriendsMainTableViewController: UISearchResultsUpdating {
+extension FriendsVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text,
             searchText != "" else {
             return
         }
-        GezondUser.searchUsers(searchText: searchText) { (friends) in
-            if let foundFriendsTVC = searchController.searchResultsController as? FoundFriendsTableViewController {
+        UserFirebase.searchUsers(searchText: searchText) { (friends) in
+            if let foundFriendsTVC = searchController.searchResultsController as? SearchVC {
                 foundFriendsTVC.foundFriends = friends
                 foundFriendsTVC.tableView.reloadData()
             }
@@ -145,22 +145,22 @@ extension FriendsMainTableViewController: UISearchResultsUpdating {
     }
 }
 
-extension FriendsMainTableViewController: UISearchBarDelegate {
+extension FriendsVC: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
 }
 
-extension FriendsMainTableViewController: UISearchControllerDelegate {
+extension FriendsVC: UISearchControllerDelegate {
     
 }
 
-extension FriendsMainTableViewController {
+extension FriendsVC {
     
     func createAcceptAction(indexPath: IndexPath) -> UIContextualAction {
         let acceptAction = UIContextualAction(style: .normal, title: nil) { (action, view, handler) in
             let user = self.matrixModel[indexPath.section][indexPath.row]
-            GezondUser.acceptInvite(inviteUser: user, completion: { (status) in
+            UserFirebase.acceptInvite(inviteUser: user, completion: { (status) in
                 DispatchQueue.main.async {
                     if status {
                         handler(true)
@@ -178,7 +178,7 @@ extension FriendsMainTableViewController {
     func createDeclineAction(indexPath: IndexPath) -> UIContextualAction {
         let declineAction = UIContextualAction(style: .normal, title: nil) { (action, view, handler) in
             let user = self.matrixModel[indexPath.section][indexPath.row]
-            GezondUser.declineInvite(inviteUser: user, completion: { (status) in
+            UserFirebase.declineInvite(inviteUser: user, completion: { (status) in
                 if status {
                     handler(true)
                 } else {

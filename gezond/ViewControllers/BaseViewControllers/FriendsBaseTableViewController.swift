@@ -19,8 +19,9 @@ class FriendsBaseTableViewController: UITableViewController {
         let friendCell = UITableViewCell()
         friendCell.imageView?.af_setImageGezond(url: friend.imageURL)
         friendCell.textLabel?.text = friend.name
-        friendCell.accessoryView = friend.isInvited ? UIImageView(image: #imageLiteral(resourceName: "invite+")) : nil
-        friendCell.accessoryView = friend.isFriend ? UIImageView(image: #imageLiteral(resourceName: "friendsIcon")) : nil
+        friendCell.accessoryView = friend.isInvited ?
+            UIImageView(image: #imageLiteral(resourceName: "invite+")) : friend.isFriend ?
+                UIImageView(image: #imageLiteral(resourceName: "friendsIcon")) : nil
         friendCell.selectionStyle = .none
         return friendCell
     }

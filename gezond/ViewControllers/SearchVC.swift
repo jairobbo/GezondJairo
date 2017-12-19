@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FoundFriendsTableViewController: FriendsBaseTableViewController {
+class SearchVC: FriendsBaseTableViewController {
 
     var foundFriends: [GUser] = []
     
@@ -43,13 +43,13 @@ class FoundFriendsTableViewController: FriendsBaseTableViewController {
     
 }
 
-extension FoundFriendsTableViewController {
+extension SearchVC {
     
     func createInviteAction(indexPath: IndexPath) -> UIContextualAction {
         let inviteAction = UIContextualAction(style: .normal, title: nil) { (action, view, handler) in
             switch self.foundFriends[indexPath.row].isInvited {
             case false:
-                GezondUser.invite(uid: self.foundFriends[indexPath.row].uid, completion: { status in
+                UserFirebase.invite(userID: self.foundFriends[indexPath.row].userID, completion: { status in
                     if status {
                         self.foundFriends[indexPath.row].isInvited = true
                         let cell = self.tableView.cellForRow(at: indexPath)
@@ -70,7 +70,7 @@ extension FoundFriendsTableViewController {
     
     func createUninviteAction(indexPath: IndexPath) -> UIContextualAction {
         let uninviteAction = UIContextualAction(style: .normal, title: "Delete") { (action, view, handler) in
-            GezondUser.uninvite(uid: self.foundFriends[indexPath.row].uid, completion: { (status) in
+            UserFirebase.uninvite(userID: self.foundFriends[indexPath.row].userID, completion: { (status) in
                 if status {
                     self.foundFriends[indexPath.row].isInvited = false
                     let cell = self.tableView.cellForRow(at: indexPath)

@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
         <!--profiel-->
         <scene sceneID="UDi-Gh-6MJ">
             <objects>
-                <viewController storyboardIdentifier="userVC" id="t4r-Sv-mLp" customClass="UserViewController" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userVC" id="t4r-Sv-mLp" customClass="UserVC" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gGB-Ui-8nv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="1812" y="759.67016491754134"/>
         </scene>
-        <!--Create Post View Controller-->
+        <!--CreateVC-->
         <scene sceneID="l1v-8f-rpZ">
             <objects>
-                <viewController storyboardIdentifier="createPost" id="Kri-Mk-ffY" customClass="CreatePostViewController" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createPost" id="Kri-Mk-ffY" customClass="CreateVC" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="coD-zk-A1o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,27 +173,27 @@
             </objects>
             <point key="canvasLocation" x="2615" y="760"/>
         </scene>
-        <!--Timeline View Controller-->
+        <!--Timeline-->
         <scene sceneID="WNe-T8-8W3">
             <objects>
-                <viewController id="s0E-4C-rN5" customClass="TimelineViewController" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Timeline" id="s0E-4C-rN5" customClass="TimelineVC" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fRe-ue-Xuf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tQb-Wn-cQr">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="424" id="1wn-uh-E8Z" customClass="PostTimelineCell" customModule="gezond" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="timelineCell" rowHeight="424" id="1wn-uh-E8Z" customClass="PostTimelineCell" customModule="gezond" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="424"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1wn-uh-E8Z" id="Fu4-AG-Azm">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="423.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0k8-l7-pWY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0k8-l7-pWY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="423.5" height="423.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="0k8-l7-pWY" secondAttribute="height" id="sgo-qe-gfq"/>
                                                     </constraints>
@@ -255,6 +255,7 @@
                                                 <constraint firstItem="0k8-l7-pWY" firstAttribute="top" secondItem="Fu4-AG-Azm" secondAttribute="top" id="SqQ-1D-Rs0"/>
                                                 <constraint firstItem="0k8-l7-pWY" firstAttribute="width" secondItem="Fu4-AG-Azm" secondAttribute="width" id="cW2-t0-te7"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="4Fq-dO-zFY" secondAttribute="bottom" id="kdL-jT-zFl"/>
+                                                <constraint firstAttribute="bottom" secondItem="0k8-l7-pWY" secondAttribute="bottom" id="mU8-Eg-kjg"/>
                                                 <constraint firstItem="43t-i3-HQ8" firstAttribute="top" secondItem="Fu4-AG-Azm" secondAttribute="topMargin" id="pfq-AJ-24b"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -317,7 +318,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" name="Jansky" family="Jansky" pointSize="30"/>
+                            <fontDescription key="fontDescription" name="Jansky" family="Jansky" pointSize="25"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -329,10 +330,10 @@
             </objects>
             <point key="canvasLocation" x="2690" y="-8"/>
         </scene>
-        <!--Friends Main Table View Controller-->
+        <!--FriendsVC-->
         <scene sceneID="0Jx-Fn-CA8">
             <objects>
-                <tableViewController id="yuY-C7-xCM" customClass="FriendsMainTableViewController" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="yuY-C7-xCM" customClass="FriendsVC" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xYn-ks-CuA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -354,9 +355,17 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cet-Xe-L5f" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Timeline" image="timelineIcon" selectedImage="timelineIcon" id="wDS-kz-1Vl"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="URw-pP-ZMR">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="URw-pP-ZMR">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Jansky" family="Jansky" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Jansky" family="Jansky" pointSize="25"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
