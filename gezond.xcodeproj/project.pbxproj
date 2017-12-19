@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		1460E954607DF799CEB32FF4 /* Pods_gezondTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331D39454462929216BE88DA /* Pods_gezondTests.framework */; };
 		2F15AADB1FE7A3650024E6D9 /* GUserLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F15AADA1FE7A3650024E6D9 /* GUserLight.swift */; };
+		2F15AADD1FE8107D0024E6D9 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F15AADC1FE8107D0024E6D9 /* TimelineViewController.swift */; };
+		2F15AADF1FE816D40024E6D9 /* PostTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F15AADE1FE816D40024E6D9 /* PostTimelineCell.swift */; };
+		2F3ABB7D1FE95950005590BC /* UserHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3ABB7B1FE95950005590BC /* UserHeaderCollectionReusableView.swift */; };
+		2F3ABB7E1FE95950005590BC /* UserHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3ABB7C1FE95950005590BC /* UserHeaderCollectionReusableView.xib */; };
 		2F3F823C1FD8379E00245AD7 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F823B1FD8379E00245AD7 /* UserViewController.swift */; };
 		2F3F82411FD99E3F00245AD7 /* ProfileEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F82401FD99E3F00245AD7 /* ProfileEntryCell.swift */; };
 		2F3F82471FDA9B8D00245AD7 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F82461FDA9B8D00245AD7 /* CreatePostViewController.swift */; };
-		2F3F824D1FDAD45100245AD7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F824C1FDAD45100245AD7 /* Post.swift */; };
+		2F3F824D1FDAD45100245AD7 /* GPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F824C1FDAD45100245AD7 /* GPost.swift */; };
 		2F80D0681FD6DE4000BA74AA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F80D0661FD6DE4000BA74AA /* FBSDKCoreKit.framework */; };
 		2F80D0691FD6DE4000BA74AA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F80D0671FD6DE4000BA74AA /* FBSDKLoginKit.framework */; };
 		2FC7B72E1FE2F122003F335A /* GezondUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC7B72D1FE2F122003F335A /* GezondUser.swift */; };
@@ -55,11 +59,15 @@
 
 /* Begin PBXFileReference section */
 		2F15AADA1FE7A3650024E6D9 /* GUserLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUserLight.swift; sourceTree = "<group>"; };
+		2F15AADC1FE8107D0024E6D9 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		2F15AADE1FE816D40024E6D9 /* PostTimelineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTimelineCell.swift; sourceTree = "<group>"; };
+		2F3ABB7B1FE95950005590BC /* UserHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		2F3ABB7C1FE95950005590BC /* UserHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		2F3F82381FD6EAEC00245AD7 /* FacebookSDK.0 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FacebookSDK.0; path = ../../FacebookSDK.0; sourceTree = "<group>"; };
 		2F3F823B1FD8379E00245AD7 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		2F3F82401FD99E3F00245AD7 /* ProfileEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEntryCell.swift; sourceTree = "<group>"; };
 		2F3F82461FDA9B8D00245AD7 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
-		2F3F824C1FDAD45100245AD7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2F3F824C1FDAD45100245AD7 /* GPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPost.swift; sourceTree = "<group>"; };
 		2F80D0661FD6DE4000BA74AA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		2F80D0671FD6DE4000BA74AA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		2FC7B72D1FE2F122003F335A /* GezondUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GezondUser.swift; sourceTree = "<group>"; };
@@ -126,6 +134,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F3ABB771FE945B2005590BC /* BaseViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2FF002E31FDFF65000296221 /* FriendsBaseTableViewController.swift */,
+			);
+			path = BaseViewControllers;
+			sourceTree = "<group>";
+		};
+		2F3ABB781FE9589C005590BC /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				2F3ABB7B1FE95950005590BC /* UserHeaderCollectionReusableView.swift */,
+				2F3ABB7C1FE95950005590BC /* UserHeaderCollectionReusableView.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
 		2F3F82481FDAAE7300245AD7 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,12 +163,13 @@
 		2FC7B72F1FE2F975003F335A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2F3ABB771FE945B2005590BC /* BaseViewControllers */,
 				2FDEC4201FD6C9260015E500 /* LoginViewController.swift */,
+				2FF002E71FDFF85D00296221 /* FoundFriendsTableViewController.swift */,
+				2FF002E51FDFF73700296221 /* FriendsMainTableViewController.swift */,
 				2F3F823B1FD8379E00245AD7 /* UserViewController.swift */,
 				2F3F82461FDA9B8D00245AD7 /* CreatePostViewController.swift */,
-				2FF002E31FDFF65000296221 /* FriendsBaseTableViewController.swift */,
-				2FF002E51FDFF73700296221 /* FriendsMainTableViewController.swift */,
-				2FF002E71FDFF85D00296221 /* FoundFriendsTableViewController.swift */,
+				2F15AADC1FE8107D0024E6D9 /* TimelineViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -152,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				2FF002DC1FDEBA4D00296221 /* GUser.swift */,
-				2F3F824C1FDAD45100245AD7 /* Post.swift */,
+				2F3F824C1FDAD45100245AD7 /* GPost.swift */,
 				2F15AADA1FE7A3650024E6D9 /* GUserLight.swift */,
 			);
 			path = Model;
@@ -163,6 +189,7 @@
 			children = (
 				2F3F82401FD99E3F00245AD7 /* ProfileEntryCell.swift */,
 				2FC7B7361FE42BA4003F335A /* ProfileHeaderReusableView.swift */,
+				2F15AADE1FE816D40024E6D9 /* PostTimelineCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +227,7 @@
 		2FDEC41D1FD6C9260015E500 /* gezond */ = {
 			isa = PBXGroup;
 			children = (
+				2F3ABB781FE9589C005590BC /* Xib */,
 				2FC7B7381FE433E9003F335A /* Fonts */,
 				2FC7B7301FE2F9B9003F335A /* Model */,
 				2FC7B7311FE2F9EB003F335A /* Views */,
@@ -377,6 +405,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3ABB7E1FE95950005590BC /* UserHeaderCollectionReusableView.xib in Resources */,
 				2FC7B73A1FE43406003F335A /* Jansky.ttf in Resources */,
 				2FDEC4291FD6C9260015E500 /* LaunchScreen.storyboard in Resources */,
 				2FDEC44D1FD6D21A0015E500 /* GoogleService-Info.plist in Resources */,
@@ -584,14 +613,17 @@
 				2FDEC4211FD6C9260015E500 /* LoginViewController.swift in Sources */,
 				2FC7B72E1FE2F122003F335A /* GezondUser.swift in Sources */,
 				2FC7B7371FE42BA4003F335A /* ProfileHeaderReusableView.swift in Sources */,
+				2F3ABB7D1FE95950005590BC /* UserHeaderCollectionReusableView.swift in Sources */,
 				2FF002E41FDFF65000296221 /* FriendsBaseTableViewController.swift in Sources */,
 				2F15AADB1FE7A3650024E6D9 /* GUserLight.swift in Sources */,
 				2FF002E61FDFF73700296221 /* FriendsMainTableViewController.swift in Sources */,
 				2FF002DD1FDEBA4D00296221 /* GUser.swift in Sources */,
-				2F3F824D1FDAD45100245AD7 /* Post.swift in Sources */,
+				2F15AADF1FE816D40024E6D9 /* PostTimelineCell.swift in Sources */,
+				2F3F824D1FDAD45100245AD7 /* GPost.swift in Sources */,
 				2FC7B7331FE319EB003F335A /* GezondPost.swift in Sources */,
 				2FDEC41F1FD6C9260015E500 /* AppDelegate.swift in Sources */,
 				2FF002D21FDB207200296221 /* AppTabBarController.swift in Sources */,
+				2F15AADD1FE8107D0024E6D9 /* TimelineViewController.swift in Sources */,
 				2F3F82471FDA9B8D00245AD7 /* CreatePostViewController.swift in Sources */,
 				2FF002E81FDFF85D00296221 /* FoundFriendsTableViewController.swift in Sources */,
 			);

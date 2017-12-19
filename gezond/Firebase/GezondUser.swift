@@ -62,10 +62,9 @@ class GezondUser {
     
     class func invite(uid: String, completion: @escaping (Bool)->Void) {
         guard let user = currentUser else { completion(false); return }
-        let friendRef = usersRef.child(uid).child("invites")
-        friendRef.child(uid).child("uid").setValue(user.uid)
-        friendRef.child(uid).child("name").setValue(user.displayName)
-        friendRef.child(uid).child("imageURL").setValue(user.photoURL)
+        let invitesRef = usersRef.child(uid).child("invites")
+        let userObject = ["uid": user.uid, "name": user.displayName, "imageURL": user.photoURL?.absoluteString]
+        invitesRef.child(uid).setValue(userObject)
         completion(true)
     }
     
@@ -96,9 +95,9 @@ class GezondUser {
     
     class func get(uid: String, completion: @escaping (GUser?)->Void) {
         usersRef.child(uid).observeSingleEvent(of: .value) { (snapshot) in
-            let optionalFriend = snapshot.value as? [String: Any]
-            let friend = GUser(userDictionary: optionalFriend)
-            completion(friend)
+            let optionalUser = snapshot.value as? [String: Any]
+            let user = GUser(userDictionary: optionalUser)
+            completion(user)
         }
     }
     

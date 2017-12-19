@@ -14,7 +14,7 @@ class UserViewController: UIViewController {
     
     @IBOutlet weak var postsCollectionView: UICollectionView!
     
-    var userPosts = [Post]()
+    var userPosts = [GPost]()
     let cameraPicker = UIImagePickerController()
     var isFriendsProfile = false
     var uid = ""
@@ -24,6 +24,9 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         postsCollectionView.delegate = self
         postsCollectionView.dataSource = self
+        
+        let nib = UINib(nibName: "UserHeaderCollectionReusableView", bundle: nil)
+        postsCollectionView.register(nib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "userHeader")
         
         cameraPicker.sourceType = .camera
         cameraPicker.delegate = self
@@ -36,20 +39,32 @@ class UserViewController: UIViewController {
         
         GezondUser.get(uid: uid) { (user) in
             self.currentUser = user
-            GezondPost.get(uid: self.uid) { (posts) in
-                self.userPosts = posts
-                self.postsCollectionView.reloadData()
+            self.postsCollectionView.reloadSections(IndexSet(integer: 0))
+            GezondPost.observeUserPosts(userID: self.uid, eventType: .childAdded) { (post) in
+                guard let userPost = post else { return }
+                self.userPosts.append(userPost)
+                let row = self.userPosts.count - 1
+                let indexPath = IndexPath(row: row, section: 0)
+                self.postsCollectionView.insertItems(at: [indexPath])
             }
+            GezondPost.observeUserPosts(userID: self.uid, eventType: .childRemoved, completion: { (post) in
+                guard let userPost = post else { return }
+                if let index = self.userPosts.index(where: { (aPost) -> Bool in
+                    aPost.imageURL.absoluteString == userPost.imageURL.absoluteString
+                }) {
+                    self.userPosts.remove(at: index)
+                    let indexPath = IndexPath(row: index, section: 0)
+                    self.postsCollectionView.deleteItems(at: [indexPath])
+                }
+            })
         }
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-
 }
 
 extension UserViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -91,7 +106,7 @@ extension UserViewController: UICollectionViewDataSource {
         let emptyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "emptyCell", for: indexPath)
         if userPosts.count == 0 {
             let newEntryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "newElementCell", for: indexPath)
-            newEntryCell.alpha = isFriendsProfile ? 0 : 1
+            newEntryCell.contentView.alpha = isFriendsProfile ? 0 : 1
             newEntryCell.isUserInteractionEnabled = !isFriendsProfile
             return newEntryCell
         } else {
@@ -113,10 +128,14 @@ extension UserViewController: UICollectionViewDataSource {
         let emptyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "emptyCell", for: indexPath)
         switch kind {
         case UICollectionElementKindSectionHeader:
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "profileHeader", for: indexPath) as? ProfileHeaderReusableView,
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: "userHeader",
+                for: indexPath
+                ) as? UserHeaderCollectionReusableView,
                 let user = currentUser else { return emptyCell }
             header.nameLabel.text = user.name
-            header.profileImageView.af_setImage(withURL: user.imageURL)
+            header.avatarImageView.af_setImage(withURL: user.imageURL)
             return header
         default:
             return emptyCell

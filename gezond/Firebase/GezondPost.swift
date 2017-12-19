@@ -11,19 +11,17 @@ import Firebase
 
 class GezondPost {
     
-    class func get(uid: String, completion: @escaping ([Post])->Void ) {
-        Database.database().reference().child("users").child(uid).child("posts").observe(.value) { (snapshot) in
-            var postsWithOptionals: [[String: Any]?] = []
-            let enumerator = snapshot.children
-            
-            while let child = enumerator.nextObject() as? DataSnapshot {
-                let post = child.value as? [String: Any]
-                postsWithOptionals.append(post)
+    class func observeUserPosts(userID: String, eventType: DataEventType, completion: @escaping (GPost?)->Void ) {
+        let postsRef = Database.database().reference().child("users").child(userID).child("posts")
+        postsRef.observeSingleEvent(of: .value) { (snaphot) in
+            if snaphot.childrenCount == 0 {
+                completion(nil)
             }
-            let posts = postsWithOptionals.flatMap({ (optPost) -> Post? in
-                Post.init(post: optPost)
-            })
-            completion(posts)
+        }
+        postsRef.observe(eventType) { (snapshot) in
+            let postsDictionary = snapshot.value as? [String: Any]
+            let post = GPost(post: postsDictionary)
+            completion(post)
         }
     }
     
@@ -36,10 +34,8 @@ class GezondPost {
         storageRef.child("postImages/\(postRef.key).jpg").putData(data, metadata: nil, completion: { (metadata, error) in
             if error == nil {
                 guard let url = metadata?.downloadURL() else { return }
-                postRef.child("imageURL").setValue(url.absoluteString)
-                postRef.child("postText").setValue(text)
-                postRef.child("user").setValue(uid)
-                postRef.child("timestamp").setValue(Date.timeIntervalSinceReferenceDate)
+                let postObject: [String: Any] = ["imageURL": url.absoluteString, "postText": text, "timestamp": Date.timeIntervalSinceReferenceDate]
+                postRef.setValue(postObject)
                 completion(nil)
             } else {
                 completion(error)

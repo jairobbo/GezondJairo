@@ -15,7 +15,6 @@ class GUser {
     let imageURL: URL
     var isInvited: Bool = false
     var isFriend: Bool = false
-    //let tagline: String
     
     init?(userDictionary: [String: Any]?) {
         guard let name = userDictionary?["name"] as? String,
