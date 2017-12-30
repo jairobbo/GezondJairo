@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import AlamofireImage
+import SDWebImage
 
 class UserVC: UIViewController {
     
@@ -152,7 +152,11 @@ extension UserVC {
         guard let postCell = postsCollectionView.dequeueReusableCell(
             withReuseIdentifier: "entryElementCell",
             for: indexPath) as? ProfileEntryCell else { return emptyCell }
-        postCell.imageView.af_setImageGezond(url: userPosts[indexPath.row].imageURL)
+        postCell.imageView.sd_setImage(
+            with: userPosts[indexPath.row].imageURL,
+            placeholderImage: #imageLiteral(resourceName: "cook"),
+            options: [],
+            completed: nil)
         return postCell
     }
     
@@ -169,7 +173,11 @@ extension UserVC {
             ) as? UserHeaderCollectionReusableView,
             let user = currentUser else { return emptyCell }
         header.nameLabel.text = user.name
-        header.avatarImageView.af_setImageGezond(url: user.imageURL)
+        header.avatarImageView.sd_setImage(
+            with: user.imageURL,
+            placeholderImage: #imageLiteral(resourceName: "cook"),
+            options: [],
+            completed: nil)
         return header
     }
 }

@@ -28,10 +28,10 @@
 		2FDEC4341FD6C9260015E500 /* gezondTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDEC4331FD6C9260015E500 /* gezondTests.swift */; };
 		2FDEC43F1FD6C9270015E500 /* gezondUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDEC43E1FD6C9270015E500 /* gezondUITests.swift */; };
 		2FDEC44D1FD6D21A0015E500 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FDEC44C1FD6D21A0015E500 /* GoogleService-Info.plist */; };
-		2FF002D21FDB207200296221 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF002D11FDB207200296221 /* AppTabBarController.swift */; };
 		2FF002E41FDFF65000296221 /* FriendsBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF002E31FDFF65000296221 /* FriendsBaseTableViewController.swift */; };
 		2FF002E61FDFF73700296221 /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF002E51FDFF73700296221 /* FriendsVC.swift */; };
 		2FF002E81FDFF85D00296221 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF002E71FDFF85D00296221 /* SearchVC.swift */; };
+		2FF384331FF539E000352D12 /* MessageFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF384321FF539E000352D12 /* MessageFirebase.swift */; };
 		C0069923029E9E30014FA6ED /* Pods_gezondUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9E08E1A4948314FB038F48 /* Pods_gezondUITests.framework */; };
 		CDD7BDCD37FB434C9417EBE2 /* Pods_gezond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E76907856C33E40B7C98663E /* Pods_gezond.framework */; };
 /* End PBXBuildFile section */
@@ -54,7 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F15AADC1FE8107D0024E6D9 /* TimelineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineVC.swift; sourceTree = "<group>"; };
+		2F15AADC1FE8107D0024E6D9 /* TimelineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineVC.swift; sourceTree = "<group>"; usesTabs = 0; };
 		2F3ABB7B1FE95950005590BC /* UserHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		2F3ABB7C1FE95950005590BC /* UserHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		2F3ABB7F1FE99809005590BC /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
@@ -81,10 +81,11 @@
 		2FDEC43E1FD6C9270015E500 /* gezondUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gezondUITests.swift; sourceTree = "<group>"; };
 		2FDEC4401FD6C9270015E500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FDEC44C1FD6D21A0015E500 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2FF002D11FDB207200296221 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
 		2FF002E31FDFF65000296221 /* FriendsBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsBaseTableViewController.swift; sourceTree = "<group>"; };
 		2FF002E51FDFF73700296221 /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
 		2FF002E71FDFF85D00296221 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		2FF384301FF2532C00352D12 /* gezond.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = gezond.entitlements; sourceTree = "<group>"; };
+		2FF384321FF539E000352D12 /* MessageFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFirebase.swift; sourceTree = "<group>"; };
 		331D39454462929216BE88DA /* Pods_gezondTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gezondTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9E08E1A4948314FB038F48 /* Pods_gezondUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gezondUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98A7C6F0BCC320632028AC00 /* Pods-gezondTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gezondTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gezondTests/Pods-gezondTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +149,7 @@
 			children = (
 				2FC7B72D1FE2F122003F335A /* UserFirebase.swift */,
 				2FC7B7321FE319EB003F335A /* PostFirebase.swift */,
+				2FF384321FF539E000352D12 /* MessageFirebase.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -215,6 +217,7 @@
 		2FDEC41D1FD6C9260015E500 /* gezond */ = {
 			isa = PBXGroup;
 			children = (
+				2FF384301FF2532C00352D12 /* gezond.entitlements */,
 				2F3ABB781FE9589C005590BC /* Xib */,
 				2FC7B7381FE433E9003F335A /* Fonts */,
 				2FC7B7301FE2F9B9003F335A /* Model */,
@@ -227,7 +230,6 @@
 				2FDEC4271FD6C9260015E500 /* LaunchScreen.storyboard */,
 				2FDEC42A1FD6C9260015E500 /* Info.plist */,
 				2FDEC44C1FD6D21A0015E500 /* GoogleService-Info.plist */,
-				2FF002D11FDB207200296221 /* AppTabBarController.swift */,
 			);
 			path = gezond;
 			sourceTree = "<group>";
@@ -355,6 +357,14 @@
 					2FDEC41A1FD6C9260015E500 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2FDEC42E1FD6C9260015E500 = {
 						CreatedOnToolsVersion = 9.2;
@@ -538,19 +548,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-gezond/Pods-gezond-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -601,11 +611,11 @@
 				2FC7B72E1FE2F122003F335A /* UserFirebase.swift in Sources */,
 				2F3ABB821FE9A12A005590BC /* Views.swift in Sources */,
 				2F3ABB7D1FE95950005590BC /* UserHeaderCollectionReusableView.swift in Sources */,
+				2FF384331FF539E000352D12 /* MessageFirebase.swift in Sources */,
 				2FF002E41FDFF65000296221 /* FriendsBaseTableViewController.swift in Sources */,
 				2FF002E61FDFF73700296221 /* FriendsVC.swift in Sources */,
 				2FC7B7331FE319EB003F335A /* PostFirebase.swift in Sources */,
 				2FDEC41F1FD6C9260015E500 /* AppDelegate.swift in Sources */,
-				2FF002D21FDB207200296221 /* AppTabBarController.swift in Sources */,
 				2F3ABB801FE99809005590BC /* Models.swift in Sources */,
 				2F15AADD1FE8107D0024E6D9 /* TimelineVC.swift in Sources */,
 				2F3F82471FDA9B8D00245AD7 /* CreateVC.swift in Sources */,
@@ -776,6 +786,7 @@
 			baseConfigurationReference = CE6225C484F4E4C87D557D07 /* Pods-gezond.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = gezond/gezond.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VT68NYD9K6;
 				ENABLE_BITCODE = NO;
@@ -801,6 +812,7 @@
 			baseConfigurationReference = A7C2A6D1E20792D5BC17F541 /* Pods-gezond.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = gezond/gezond.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = VT68NYD9K6;

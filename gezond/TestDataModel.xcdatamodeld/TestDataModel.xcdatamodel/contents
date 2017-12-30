@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Mood" representedClassName=".Mood" syncable="YES">
+        <attribute name="colors" attributeType="Transformable" syncable="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" spotlightIndexingEnabled="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Mood" positionX="-63" positionY="-18" width="180" height="73"/>
+    </elements>
+</model>

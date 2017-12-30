@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TimelineVC: UIViewController {
     
@@ -82,7 +83,11 @@ extension TimelineVC: UITableViewDataSource {
 extension TimelineVC {
     func configureCell(cell: PostTimelineCell, indexPath: IndexPath) -> PostTimelineCell {
         let post = posts[indexPath.row]
-        cell.postImageView.af_setImageGezond(url: post.imageURL)
+        cell.postImageView.sd_setImage(
+            with: post.imageURL,
+            placeholderImage: #imageLiteral(resourceName: "cook"),
+            options: [],
+            completed: nil)
         cell.postTextLabel.text = post.postText
         cell.selectionStyle = .none
         return cell

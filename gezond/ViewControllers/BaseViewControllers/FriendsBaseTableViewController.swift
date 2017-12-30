@@ -7,17 +7,21 @@
 //
 
 import UIKit
-import AlamofireImage
+import SDWebImage
 
 class FriendsBaseTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     func foundFriendCellFromFriend(friend: GUser) -> UITableViewCell {
         let friendCell = UITableViewCell()
-        friendCell.imageView?.af_setImageGezond(url: friend.imageURL)
+        friendCell.imageView?.sd_setImage(
+            with: friend.imageURL,
+            placeholderImage: #imageLiteral(resourceName: "cook"),
+            options: [],
+            completed: nil)
         friendCell.textLabel?.text = friend.name
         friendCell.accessoryView = friend.isInvited ?
             UIImageView(image: #imageLiteral(resourceName: "invite+")) : friend.isFriend ?
@@ -28,17 +32,13 @@ class FriendsBaseTableViewController: UITableViewController {
     
     func friendCellFromFriend(friend: GUserLight) -> UITableViewCell {
         let friendCell = UITableViewCell()
-        friendCell.imageView?.af_setImageGezond(url: friend.imageURL)
+        friendCell.imageView?.sd_setImage(
+            with: friend.imageURL,
+            placeholderImage: #imageLiteral(resourceName: "cook"),
+            options: [],
+            completed: nil)
         friendCell.textLabel?.text = friend.name
         friendCell.selectionStyle = .none
         return friendCell
-    }
-}
-
-extension UIImageView {
-    
-    public func af_setImageGezond(url: URL) {
-        self.af_setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "cook"), filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: UIImageView.ImageTransition.crossDissolve(0.2), runImageTransitionIfCached: false) { (response) in
-        }
     }
 }

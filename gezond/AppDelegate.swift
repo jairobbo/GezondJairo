@@ -11,19 +11,43 @@ import Firebase
 import FBSDKCoreKit
 import Fabric
 import Crashlytics
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         FirebaseApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         Fabric.with([Crashlytics.self])
+        
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.sound, .badge, .alert]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) {
+            (authorized, error) in
+        }
+        application.registerForRemoteNotifications()
+        Messaging.messaging().delegate = self
         return true
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        guard let tabBarVC = window?.rootViewController?.presentedViewController as? UITabBarController,
+        let aps = userInfo["aps"] as? [String: Any],
+            let badgeCount = aps["badge"] as? Int else { return }
+        tabBarVC.viewControllers![1].tabBarItem.badgeValue = "\(badgeCount)"
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        guard let user = Auth.auth().currentUser else { return }
+        MessageFireBase.addFCMToken(userID: user.uid, token: fcmToken)
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -32,29 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return handled
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
 
 }
 

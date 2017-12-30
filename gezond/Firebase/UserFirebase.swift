@@ -19,11 +19,9 @@ class UserFirebase {
         guard FBSDKAccessToken.current() != nil else { completion(false); return }
         let token = FBSDKAccessToken.current().tokenString
         let credential = FacebookAuthProvider.credential(withAccessToken: token!)
-        
         Auth.auth().signIn(with: credential, completion: { user, error in
             guard error == nil,
                 let user = user else { completion(false); return }
-            
             usersRef.child(user.uid).child("name").setValue(user.displayName)
         usersRef.child(user.uid).child("imageURL").setValue(user.photoURL?.absoluteString)
             usersRef.child(user.uid).child("userID").setValue(user.uid)

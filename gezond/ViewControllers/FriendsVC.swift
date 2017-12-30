@@ -58,6 +58,8 @@ class FriendsVC: FriendsBaseTableViewController {
                 let row = self.matrixModel[0].count - 1
                 let indexPath = IndexPath(row: row, section: 0)
                 self.tableView.insertRows(at: [indexPath], with: .fade)
+                self.tabBarItem.badgeValue = "\(self.matrixModel[0].count)"
+                UIApplication.shared.applicationIconBadgeNumber = self.matrixModel[0].count
             }
         }
         
@@ -70,6 +72,12 @@ class FriendsVC: FriendsBaseTableViewController {
                 self.matrixModel[0].remove(at: index)
                 let indexPath = IndexPath(row: index, section: 0)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
+                if self.matrixModel[0].count == 0 {
+                    self.tabBarController?.viewControllers?[1].tabBarItem.badgeValue = nil
+                } else {
+                    self.tabBarItem.badgeValue = "\(self.matrixModel[0].count)"
+                }
+                UIApplication.shared.applicationIconBadgeNumber = self.matrixModel[0].count
             }
         }
     }

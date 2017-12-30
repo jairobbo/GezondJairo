@@ -11,9 +11,10 @@ target 'gezond' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
-  pod 'AlamofireImage', '~> 3.3'
+  pod 'Firebase/Messaging'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'SDWebImage', '~> 4.0'
 
   target 'gezondTests' do
     inherit! :search_paths
