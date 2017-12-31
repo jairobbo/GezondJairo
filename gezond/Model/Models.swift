@@ -26,10 +26,10 @@ class GUser {
     }
 }
 
-class GPost {
+class GPost: HasTimestamp {
     let imageURL: URL
     let postText: String
-    let timeStamp: Double
+    let timestamp: Double
     let userID: String
     
     init?(post: [String: Any]?) {
@@ -41,7 +41,7 @@ class GPost {
             let userID = aPost["userID"] as? String else { return nil }
         self.imageURL = url
         self.postText = text
-        self.timeStamp = timeStamp
+        self.timestamp = timeStamp
         self.userID = userID
     }
 }
@@ -59,6 +59,25 @@ class GUserLight {
         self.userID = uid
         self.name = name
         self.imageURL = url
+    }
+}
+
+class GComment {
+    var text: String
+    var imageURL: URL
+    var userID: String
+    var timestamp: Double
+    
+    init?(commentDictionary: [String: Any]?) {
+        guard let text = commentDictionary?["comment"] as? String,
+            let timestamp = commentDictionary?["timestamp"] as? Double,
+            let urlString = commentDictionary?["imageURL"] as? String,
+            let userID = commentDictionary?["userID"] as? String,
+            let url = URL(string: urlString) else { return nil }
+        self.text = text
+        self.imageURL = url
+        self.userID = userID
+        self.timestamp = timestamp
     }
 }
 

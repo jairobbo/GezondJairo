@@ -17,7 +17,6 @@ class PostTimelineCell: UITableViewCell {
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTextLabel: UILabel!
-    @IBOutlet weak var heartsView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,4 +29,10 @@ class PostTimelineCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+class PostDetailCell: UITableViewCell {
+    
+    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var postLabel: UILabel!
 }

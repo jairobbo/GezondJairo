@@ -25,8 +25,7 @@ class TimelineVC: UIViewController {
 
         PostFirebase.observeTimelinePosts(eventType: .childAdded) { (optionalPost) in
             guard let post = optionalPost else { return }
-            self.posts.insert(post, at: 0)
-            let indexPath = IndexPath(row: 0, section: 0)
+            let indexPath = insertGreaterTimeFirst(newElement: post, array: &self.posts)
             self.timelineTableView.insertRows(at: [indexPath], with: .fade)
         }
         
@@ -66,7 +65,10 @@ class TimelineVC: UIViewController {
 }
 
 extension TimelineVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        presentDetail(post: post)
+    }
 }
 
 extension TimelineVC: UITableViewDataSource {
@@ -92,4 +94,26 @@ extension TimelineVC {
         cell.selectionStyle = .none
         return cell
     }
+    
+    func presentDetail(post: GPost) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let postDetailVC = storyboard.instantiateViewController(withIdentifier: "PostDetailVC") as? PostDetailVC else { return }
+        postDetailVC.post = post
+        self.present(postDetailVC, animated: true, completion: nil)
+    }
+}
+
+func insertGreaterTimeFirst<T: HasTimestamp> (newElement: T, array: inout [T]) -> IndexPath {
+    var insertIndex = array.count
+    for (index, element) in array.enumerated() {
+        if newElement.timestamp > element.timestamp {
+            insertIndex = index
+        }
+    }
+    array.insert(newElement, at: insertIndex)
+    return IndexPath(row: insertIndex, section: 0)
+}
+
+protocol HasTimestamp {
+    var timestamp: Double { get }
 }

@@ -39,6 +39,10 @@ class UserVC: UIViewController {
         
         UserFirebase.get(userID: userID) { (user) in
             self.currentUser = user
+            if let currentUser = self.currentUser {
+                let firstName = currentUser.name.split(separator: " ").first ?? "noname"
+                self.title = "\(firstName)'s pagina"
+            }
             self.postsCollectionView.reloadSections(IndexSet(integer: 0))
             PostFirebase.observeUserPosts(userID: self.userID, eventType: .childAdded) { (post) in
                 guard let userPost = post else { return }

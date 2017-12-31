@@ -17,6 +17,8 @@
 		2F3F82471FDA9B8D00245AD7 /* CreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F82461FDA9B8D00245AD7 /* CreateVC.swift */; };
 		2F80D0681FD6DE4000BA74AA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F80D0661FD6DE4000BA74AA /* FBSDKCoreKit.framework */; };
 		2F80D0691FD6DE4000BA74AA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F80D0671FD6DE4000BA74AA /* FBSDKLoginKit.framework */; };
+		2F84A61B1FF7A7E50008CF79 /* PostDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84A61A1FF7A7E50008CF79 /* PostDetailVC.swift */; };
+		2F84A61D1FF7AE900008CF79 /* CommentFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84A61C1FF7AE900008CF79 /* CommentFirebase.swift */; };
 		2FC7B72E1FE2F122003F335A /* UserFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC7B72D1FE2F122003F335A /* UserFirebase.swift */; };
 		2FC7B7331FE319EB003F335A /* PostFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC7B7321FE319EB003F335A /* PostFirebase.swift */; };
 		2FC7B73A1FE43406003F335A /* Jansky.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FC7B7391FE43406003F335A /* Jansky.ttf */; };
@@ -64,6 +66,8 @@
 		2F3F82461FDA9B8D00245AD7 /* CreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVC.swift; sourceTree = "<group>"; };
 		2F80D0661FD6DE4000BA74AA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		2F80D0671FD6DE4000BA74AA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		2F84A61A1FF7A7E50008CF79 /* PostDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailVC.swift; sourceTree = "<group>"; };
+		2F84A61C1FF7AE900008CF79 /* CommentFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentFirebase.swift; sourceTree = "<group>"; };
 		2FC7B72D1FE2F122003F335A /* UserFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFirebase.swift; sourceTree = "<group>"; };
 		2FC7B7321FE319EB003F335A /* PostFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFirebase.swift; sourceTree = "<group>"; };
 		2FC7B7391FE43406003F335A /* Jansky.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jansky.ttf; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				2FC7B72D1FE2F122003F335A /* UserFirebase.swift */,
 				2FC7B7321FE319EB003F335A /* PostFirebase.swift */,
 				2FF384321FF539E000352D12 /* MessageFirebase.swift */,
+				2F84A61C1FF7AE900008CF79 /* CommentFirebase.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				2F3F823B1FD8379E00245AD7 /* UserVC.swift */,
 				2F3F82461FDA9B8D00245AD7 /* CreateVC.swift */,
 				2F15AADC1FE8107D0024E6D9 /* TimelineVC.swift */,
+				2F84A61A1FF7A7E50008CF79 /* PostDetailVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -610,9 +616,11 @@
 				2FDEC4211FD6C9260015E500 /* LoginVC.swift in Sources */,
 				2FC7B72E1FE2F122003F335A /* UserFirebase.swift in Sources */,
 				2F3ABB821FE9A12A005590BC /* Views.swift in Sources */,
+				2F84A61D1FF7AE900008CF79 /* CommentFirebase.swift in Sources */,
 				2F3ABB7D1FE95950005590BC /* UserHeaderCollectionReusableView.swift in Sources */,
 				2FF384331FF539E000352D12 /* MessageFirebase.swift in Sources */,
 				2FF002E41FDFF65000296221 /* FriendsBaseTableViewController.swift in Sources */,
+				2F84A61B1FF7A7E50008CF79 /* PostDetailVC.swift in Sources */,
 				2FF002E61FDFF73700296221 /* FriendsVC.swift in Sources */,
 				2FC7B7331FE319EB003F335A /* PostFirebase.swift in Sources */,
 				2FDEC41F1FD6C9260015E500 /* AppDelegate.swift in Sources */,
