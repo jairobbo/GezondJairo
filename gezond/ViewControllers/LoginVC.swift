@@ -33,6 +33,12 @@ class LoginVC: UIViewController {
             }
         }
     }
+    
+    @IBAction func unwindAction(segue: UIStoryboardSegue) {
+        UserFirebase.logout {
+            print("user logged out")
+        }
+    }
 }
 
 extension LoginVC: FBSDKLoginButtonDelegate {

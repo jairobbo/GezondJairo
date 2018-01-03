@@ -25,7 +25,7 @@ class TimelineVC: UIViewController {
 
         PostFirebase.observeTimelinePosts(eventType: .childAdded) { (optionalPost) in
             guard let post = optionalPost else { return }
-            let indexPath = insertGreaterTimeFirst(newElement: post, array: &self.posts)
+            let indexPath = insertSortedByTimestamp(newElement: post, array: &self.posts)
             self.timelineTableView.insertRows(at: [indexPath], with: .fade)
         }
         
@@ -103,9 +103,9 @@ extension TimelineVC {
     }
 }
 
-func insertGreaterTimeFirst<T: HasTimestamp> (newElement: T, array: inout [T]) -> IndexPath {
+func insertSortedByTimestamp<T: HasTimestamp> (newElement: T, array: inout [T]) -> IndexPath {
     var insertIndex = array.count
-    for (index, element) in array.enumerated() {
+    for (index, element) in array.enumerated().reversed() {
         if newElement.timestamp > element.timestamp {
             insertIndex = index
         }

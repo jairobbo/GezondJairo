@@ -15,6 +15,12 @@ class UserFirebase {
     static let usersRef = Database.database().reference().child("users")
     static let currentUser = Auth.auth().currentUser
     
+    class func logout(completion: @escaping ()->Void ) {
+        let manager = FBSDKLoginManager()
+        manager.logOut()
+        completion()
+    }
+    
     class func login(completion: @escaping (Bool) -> Void  ) {
         guard FBSDKAccessToken.current() != nil else { completion(false); return }
         let token = FBSDKAccessToken.current().tokenString
