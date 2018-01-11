@@ -38,7 +38,7 @@ class UserFirebase {
     class func searchUsers(searchText: String?, completion: @escaping ([GUser])->Void ) {
         guard let text = searchText,
             let user = currentUser else { completion([]); return }
-        let foundUsersRef = usersRef.queryOrdered(byChild: "name").queryStarting(atValue: text).queryEnding(atValue: "\(text)\\uf8ff")
+        let foundUsersRef = usersRef.queryOrdered(byChild: "name").queryStarting(atValue: text).queryEnding(atValue: text + "~")
         foundUsersRef.observeSingleEvent(of: .value, with: { (snapshot) in
             let enumerator = snapshot.children
             var optionalUserDictionaries = [[String: Any]?]()

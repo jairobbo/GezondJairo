@@ -27,7 +27,7 @@ class FriendsVC: FriendsBaseTableViewController {
         searchController.searchBar.sizeToFit()
         
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.hidesSearchBarWhenScrolling = false
         
         definesPresentationContext = true
         
