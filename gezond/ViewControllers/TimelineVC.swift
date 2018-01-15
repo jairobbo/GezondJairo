@@ -104,10 +104,16 @@ extension TimelineVC {
 }
 
 func insertSortedByTimestamp<T: HasTimestamp> (newElement: T, array: inout [T]) -> IndexPath {
-    var insertIndex = array.count
-    for (index, element) in array.enumerated().reversed() {
-        if newElement.timestamp > element.timestamp {
-            insertIndex = index
+    var insertIndex = 0
+    for i in 0..<array.count {
+        if newElement.timestamp < array[i].timestamp {
+            if i == array.count - 1 {
+                insertIndex = i + 1
+            } else {
+                if newElement.timestamp > array[i+1].timestamp {
+                    insertIndex = i + 1
+                }
+            }
         }
     }
     array.insert(newElement, at: insertIndex)

@@ -31,14 +31,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loadingVC = storyboard.instantiateViewController(withIdentifier: "LoadingVC")
+        window?.rootViewController = loadingVC
+        if FBSDKAccessToken.current() != nil {
+            UserFirebase.login(completion: { (status) in
+                if status == true {
+                    let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+                    self.window?.rootViewController = homeVC
+                } else {
+                    let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+                    self.window?.rootViewController = loginVC
+                }
+            })
+        } else {
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+            self.window?.rootViewController = loginVC
+        }
+        
         return true
-    }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        guard let tabBarVC = window?.rootViewController?.presentedViewController as? UITabBarController,
-        let aps = userInfo["aps"] as? [String: Any],
-            let badgeCount = aps["badge"] as? Int else { return }
-        tabBarVC.viewControllers![1].tabBarItem.badgeValue = "\(badgeCount)"
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {

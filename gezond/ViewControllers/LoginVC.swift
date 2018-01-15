@@ -9,14 +9,10 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-import Firebase
 
 class LoginVC: UIViewController {
 
     let loginButton = FBSDKLoginButton()
-    var user: User!
-    var usersRef = DatabaseReference()
-    var loginCallback: ((User?, Error?) -> ())!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +27,6 @@ class LoginVC: UIViewController {
             if status {
                 self.performSegue(withIdentifier: "enterApp", sender: self)
             }
-        }
-    }
-    
-    @IBAction func unwindAction(segue: UIStoryboardSegue) {
-        UserFirebase.logout {
-            print("user logged out")
         }
     }
 }

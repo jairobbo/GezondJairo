@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,11 +10,16 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jansky.ttf">
+            <string>Jansky</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginVC" customModule="gezond" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +34,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6" y="-185"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Hhe-mr-qYh">
+            <objects>
+                <viewController storyboardIdentifier="LoadingVC" id="YSw-gG-o7c" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9EU-61-ee3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gezond" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D5-Tc-uOm">
+                                <rect key="frame" x="80" y="298" width="215.5" height="71"/>
+                                <fontDescription key="fontDescription" name="Jansky" family="Jansky" pointSize="71"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8D5-Tc-uOm" firstAttribute="centerX" secondItem="9EU-61-ee3" secondAttribute="centerX" id="KX0-UO-0IV"/>
+                            <constraint firstItem="8D5-Tc-uOm" firstAttribute="centerY" secondItem="9EU-61-ee3" secondAttribute="centerY" id="rco-pg-LUc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wml-b5-Tzc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="juI-Vb-FJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="216.80000000000001" y="623.83808095952031"/>
         </scene>
         <!--UserVC-->
         <scene sceneID="UDi-Gh-6MJ">
@@ -110,18 +142,13 @@
                         <viewLayoutGuide key="safeArea" id="Vds-2X-ORy"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="DWh-w8-dJc">
-                        <barButtonItem key="rightBarButtonItem" title="logout" id="A8e-gd-Il0">
-                            <connections>
-                                <segue destination="uQd-j6-UWA" kind="unwind" unwindAction="unwindActionWithSegue:" id="vmr-Qv-gGM"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="logout" id="A8e-gd-Il0"/>
                     </navigationItem>
                     <connections>
                         <outlet property="postsCollectionView" destination="TDM-5t-iLy" id="TBf-xt-o3B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EnF-Ea-JyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="uQd-j6-UWA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2689" y="760"/>
         </scene>
@@ -370,7 +397,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="IIx-Rb-sOn">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hC3-R8-j08" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" id="hC3-R8-j08" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vbI-X5-m9l">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
