@@ -142,7 +142,11 @@
                         <viewLayoutGuide key="safeArea" id="Vds-2X-ORy"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="DWh-w8-dJc">
-                        <barButtonItem key="rightBarButtonItem" title="logout" id="A8e-gd-Il0"/>
+                        <barButtonItem key="rightBarButtonItem" title="logout" id="A8e-gd-Il0">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="ShowLoginVC" modalTransitionStyle="crossDissolve" id="U3S-Gp-7h5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="postsCollectionView" destination="TDM-5t-iLy" id="TBf-xt-o3B"/>
@@ -522,4 +526,7 @@
         <image name="profileIcon" width="25" height="25"/>
         <image name="timelineIcon" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="U3S-Gp-7h5"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SDWebImage
+import FBSDKLoginKit
 
 class UserVC: UIViewController {
     
@@ -67,6 +68,19 @@ class UserVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "ShowLoginVC" {
+            let manager = FBSDKLoginManager()
+            manager.logOut()
+            UserFirebase.logout {}
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+                let _ = appDelegate.window?.rootViewController as? LoginVC else { return true }
+            navigationController?.tabBarController?.dismiss(animated: true, completion: nil)
+            return false
+        }
+        return true
     }
 }
 
